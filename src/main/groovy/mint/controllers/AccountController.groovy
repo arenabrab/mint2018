@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
-@RestController
-@Slf4j
+//@RestController
+//@Slf4j
 class AccountController {
 
     @Autowired
@@ -20,23 +20,22 @@ class AccountController {
         service.getWelcome()
     }
 
-    @RequestMapping("/getAllAccounts")
+    @RequestMapping("/acct/getAllAccounts")
     def getAccount(){
         service.getAllAccounts()
     }
 
-    @RequestMapping("/add")
+    @RequestMapping("/acct/add")
     def addAccount(@RequestParam String firstName, @RequestParam String lastName, @RequestParam BigDecimal amount){
         service.addAccount(firstName, lastName, amount)
-        println "Saved"
     }
 
-    @RequestMapping("/getOne")
-    Account getOneAccount(@RequestParam Long id){
-        service.getOneAccount(id)
+    @RequestMapping("/acct/getAcct")
+    Account getAccount(@RequestParam Long id){
+        service.getAccount(id)
     }
 
-    @RequestMapping("/remove")
+    @RequestMapping("acct//removeAcct")
     def deleteAccount(@RequestParam Long id){
         service.removeAccount(id)
     }

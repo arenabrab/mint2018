@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
-@RestController
-@Slf4j
+//@RestController
+//@Slf4j
 class TransactionController {
 
     @Autowired
@@ -24,8 +24,18 @@ class TransactionController {
         service.getWelcome()
     }
 
-    @RequestMapping('/addTrn')
+    @RequestMapping('/tran/addTran')
     def addTransaction(@RequestParam BigDecimal amount, @RequestParam String transactionType, @RequestParam Long key){
         service.addTransaction(new Transaction(amount: amount, transactionType: transactionType, key: key))
+    }
+
+    @RequestMapping('/tran/getTran')
+    def getTransaction(@RequestParam Long id){
+        service.getTransaction(id)
+    }
+
+    @RequestMapping('/tran/getAllTrans')
+    def getAllTransactions(@RequestParam Long memberId){
+        service.getAllTransactions(memberId)
     }
 }

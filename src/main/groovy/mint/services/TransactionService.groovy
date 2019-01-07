@@ -25,4 +25,13 @@ class TransactionService {
         transactionRepo.save(transaction)
         log.info('Transaction Added')
     }
+
+    def getTransaction(long id) {
+        transactionRepo.findByTransactionId(id)
+    }
+
+    def getAllTransactions(long memberId) {
+        transactionRepo.findByMemberId(memberId)
+    }
 }
+

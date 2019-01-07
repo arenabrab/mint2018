@@ -29,7 +29,7 @@ class AccountService {
         accountRepo.save(new Account(firstName: firstName, lastName: lastName, amount: amount))
     }
 
-    Account getOneAccount(id){
+    Account getAccount(id){
         accountRepo.findByMemberId(id)
     }
 
@@ -38,9 +38,5 @@ class AccountService {
                 "${accountRepo.findByMemberId(id).getFirstName()}")
         accountRepo.deleteById(id)
         log.info("Deleted")
-    }
-
-    boolean exists(){
-
     }
 }
