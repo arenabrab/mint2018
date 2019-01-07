@@ -11,9 +11,3 @@ interface TransactionRepo extends JpaRepository<Transaction, Long>{
     Transaction findByTransactionId(@Param('id') Long id)
     List<Transaction> findByMemberId(@Param('memberId') Long memberId)
 }
-
-{transactions.forEach(tran =>
-        <div key={tran.id}>
-        {tran.name}
-        </div>
-                          )}
